@@ -68,9 +68,28 @@ module.exports = {
 		"background-color",
 		"window-color",
 		"glow-color",
+		"rounded",
+		"rounded-md",
+		"rounded-lg",
+		"rounded-t-md",
+		"rounded-b-md",
+		"bg-opacity-10",
+		"bg-opacity-20",
+		"bg-opacity-30",
+		"bg-opacity-40",
 		{
 			pattern:
 				/(bg|text|border|caret)-(white|gray|black|red|green|yellow|blue|cyan|magenta|textColor)/
+		},
+		{
+			pattern:
+				/hover:(bg|text)-(white|gray|black|red|green|yellow|blue|cyan|magenta)/
+		},
+		{
+			pattern: /hover:bg-opacity-(10|20)/
+		},
+		{
+			pattern: /focus:ring-(white|gray|black|red|green|yellow|blue|cyan|magenta)/
 		}
 	]
 }
