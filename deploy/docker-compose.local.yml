@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  start-page:
+    container_name: ${CONTAINER_NAME:-excalith-start-page}
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "${PORT:-8080}:3000"
+    healthcheck:
+      test: ["CMD-SHELL", "node -e \"require('http').get('http://localhost:3000', (r) => process.exit(r.statusCode === 200 ? 0 : 1))\""]
+      interval: ${HEALTHCHECK_INTERVAL:-30}s
+      timeout: ${HEALTHCHECK_TIMEOUT:-10}s
+      retries: ${HEALTHCHECK_RETRIES:-3}
+      start_period: 40s
+    labels:
+      - "com.synology.description=Excalith Start Page - Local Build"
+      - "com.docker.compose.project=excalith-start-page"
