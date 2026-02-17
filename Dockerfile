@@ -1,35 +1,42 @@
-# Stage 1: Build Next.js static export
-FROM node:20-alpine AS builder
-
+# Stage 1: Install dependencies
+FROM node:20-alpine AS deps
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
-
-# Copy package files
 COPY package.json yarn.lock ./
-
-# Install dependencies
 RUN yarn install --frozen-lockfile
 
-# Copy source code
+# Stage 2: Build application
+FROM node:20-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Build static export (generates /app/out)
+# Build Next.js standalone
 RUN yarn build
 
-# Stage 2: Serve with nginx
-FROM nginx:alpine
+# Stage 3: Production runtime
+FROM node:20-alpine AS runner
+WORKDIR /app
 
-# Copy static files from builder
-COPY --from=builder /app/out /usr/share/nginx/html
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
 
-# Copy nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
 
-# Expose port 80
-EXPOSE 80
+# Copy standalone output
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --from=builder --chown=nextjs:nodejs /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/data ./data
 
-# Health check
+USER nextjs
+
+EXPOSE 3000
+
+ENV PORT=3000
+
 HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
-  CMD wget --no-verbose --tries=1 --spider http://localhost/ || exit 1
+  CMD node -e "require('http').get('http://localhost:3000', (r) => process.exit(r.statusCode === 200 ? 0 : 1))"
 
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["node", "server.js"]
