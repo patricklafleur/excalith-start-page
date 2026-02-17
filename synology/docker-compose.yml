@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  start-page:
+    container_name: ${CONTAINER_NAME:-excalith-start-page}
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "${PORT:-8080}:3000"
+    volumes:
+      - ../data:/app/data
+    environment:
+      - NODE_ENV=${NODE_ENV:-production}
+      - BUILD_MODE=${BUILD_MODE:-docker}
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3000', (r) => process.exit(r.statusCode === 200 ? 0 : 1))"]
+      interval: ${HEALTHCHECK_INTERVAL:-30}s
+      timeout: ${HEALTHCHECK_TIMEOUT:-10}s
+      retries: ${HEALTHCHECK_RETRIES:-3}
+      start_period: 40s

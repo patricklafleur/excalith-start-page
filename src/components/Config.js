@@ -24,6 +24,10 @@ const Config = ({ commands, closeCallback }) => {
 			editConfig()
 		} else if (cmd === "reset") {
 			resetConfig()
+		} else if (cmd === "copy") {
+			copyConfig()
+		} else if (cmd === "export") {
+			exportConfig()
 		} else if (cmd === "theme") {
 			if (commands.length === 3) {
 				const themeName = commands[2]
@@ -110,6 +114,40 @@ const Config = ({ commands, closeCallback }) => {
 		setDone(true)
 	}
 
+	const copyConfig = () => {
+		const settingsJSON = JSON.stringify(settings, null, 2)
+		if (navigator.clipboard) {
+			navigator.clipboard
+				.writeText(settingsJSON)
+				.then(() => {
+					appendToLog("Settings copied to clipboard", "success")
+					setDone(true)
+				})
+				.catch((err) => {
+					appendToLog("Failed to copy to clipboard: " + err.message, "error")
+					setDone(true)
+				})
+		} else {
+			appendToLog("Clipboard API not available", "error")
+			setDone(true)
+		}
+	}
+
+	const exportConfig = () => {
+		const settingsJSON = JSON.stringify(settings, null, 2)
+		const blob = new Blob([settingsJSON], { type: "application/json" })
+		const url = URL.createObjectURL(blob)
+		const a = document.createElement("a")
+		a.href = url
+		a.download = "settings.json"
+		document.body.appendChild(a)
+		a.click()
+		document.body.removeChild(a)
+		URL.revokeObjectURL(url)
+		appendToLog("Settings exported to settings.json", "success")
+		setDone(true)
+	}
+
 	const editConfig = () => {
 		setIsEditMode(true)
 	}
@@ -121,6 +159,8 @@ const Config = ({ commands, closeCallback }) => {
 		appendToLog(["config theme <theme-name>", "Switch theme"], "help")
 		appendToLog(["config import <url>", "Import remote config"], "help")
 		appendToLog(["config edit", "Edit local config"], "help")
+		appendToLog(["config copy", "Copy settings to clipboard"], "help")
+		appendToLog(["config export", "Download settings as file"], "help")
 		appendToLog(["config reset", "Reset to default config"], "help")
 		setDone(true)
 	}

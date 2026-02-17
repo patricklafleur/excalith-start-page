@@ -1,0 +1,6 @@
+# Local environment configuration
+.env
+
+# Backups
+backups/
+*.json.backup

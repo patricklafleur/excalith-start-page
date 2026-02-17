@@ -1,0 +1,478 @@
+{
+	"username": "patricklafleur",
+	"title": "Patrick's Start Page",
+	"theme": {
+		"name": "Default",
+		"backgroundColor": "#121317",
+		"windowColor": "#1e212b",
+		"textColor": "#e2e2e2",
+		"black": "#16161e",
+		"red": "#ec6183",
+		"green": "#2ed8a2",
+		"yellow": "#e8b195",
+		"blue": "#2bc3de",
+		"magenta": "#d1aff8",
+		"cyan": "#62e0e2",
+		"white": "#e2e2e2",
+		"gray": "#97989d"
+	},
+	"wallpaper": {
+		"url": "assets/default-wallpaper.svg",
+		"easing": "ease-in-out",
+		"fadeIn": true,
+		"blur": false
+	},
+	"terminal": {
+		"fixedHeight": true,
+		"windowGlow": true,
+		"windowGlowColor": "#291f3325",
+		"textGlow": false,
+		"opacity": 0,
+		"blur": 16
+	},
+	"prompt": {
+		"ctrlC": true,
+		"placeholder": "command...",
+		"placeholderColor": "gray",
+		"userColor": "green",
+		"atColor": "gray",
+		"hostColor": "magenta",
+		"promptColor": "magenta",
+		"promptSymbol": "❯",
+		"caretColor": "green",
+		"selectionBg": "yellow",
+		"selectionFg": "black"
+	},
+	"fetch": {
+		"timeFormat": "HH:mm",
+		"dateFormat": "DD/MM/YYYY",
+		"titleColor": "yellow",
+		"image": "assets/default-icon.svg",
+		"data": [
+			"Time: {time}",
+			"Date: {date}",
+			"{seperator}",
+			"OS: {osName} {osVersion}",
+			"Theme: {theme}",
+			"{seperator}",
+			"Browser: {browser} {browserVersion}",
+			"Engine: {engineName}",
+			"{seperator}",
+			"{colors}"
+		]
+	},
+	"urlLaunch": {
+		"target": "_self",
+		"hoverColor": "magenta"
+	},
+	"search": {
+		"default": "https://google.com/search?q={}",
+		"target": "_self",
+		"shortcutRegex": "(!?[A-Za-z0-9]+) (.*)",
+		"shortcuts": [
+			{
+				"alias": "g",
+				"name": "Google Search",
+				"url": "https://google.com/search?q={}"
+			},
+			{
+				"alias": "d",
+				"name": "DuckDuckGo Search",
+				"url": "https://duckduckgo.com/?q={}"
+			},
+			{
+				"alias": "!d",
+				"name": "DuckDuckGo Lucky Search",
+				"url": "https://duckduckgo.com/?q=!ducky+{}"
+			},
+			{
+				"alias": "b",
+				"name": "Brave Search",
+				"url": "https://search.brave.com/search?q={}"
+			},
+			{
+				"alias": "gh",
+				"name": "Github Search",
+				"url": "https://github.com/search?q={}"
+			},
+			{
+				"alias": "s",
+				"name": "Stack Overflow Search",
+				"url": "https://stackoverflow.com/search?q={}"
+			},
+			{
+				"alias": "r",
+				"name": "Subreddit Search",
+				"url": "https://reddit.com/r/{}"
+			},
+			{
+				"alias": "w",
+				"name": "Wikipedia Search",
+				"url": "https://en.wikipedia.org/wiki/{}"
+			}
+		]
+	},
+	"sections": {
+		"list": [
+			{
+				"title": "ExplorADV",
+				"color": "magenta",
+				"align": "left",
+				"environmentSelector": true,
+				"defaultEnvironment": "dev",
+				"maxVisibleLinks": 5,
+				"links": [
+					{
+						"name": "Website",
+						"url": "https://github.com/ExplorADV/website",
+						"icon": "mdi:github",
+						"environment": "dev"
+					},
+					{
+						"name": "iOS",
+						"url": "https://github.com/patricklafleur/exploradv-ios",
+						"icon": "mdi:github",
+						"environment": "dev"
+					},
+					{
+						"name": "PassKit",
+						"url": "https://github.com/patricklafleur/exploradv-passkit",
+						"icon": "mdi:github",
+						"environment": "dev"
+					},
+					{
+						"name": "Bug Reports",
+						"url": "https://github.com/ExplorADV/public-bug-reports/issues",
+						"icon": "mdi:bug",
+						"environment": "dev"
+					},
+					{
+						"name": "Projet Perso",
+						"url": "https://github.com/users/patricklafleur/projects/5",
+						"icon": "mdi:view-dashboard-outline",
+						"environment": "dev"
+					},
+					{
+						"name": "Projet Org",
+						"url": "https://github.com/orgs/ExplorADV/projects/7",
+						"icon": "mdi:view-dashboard",
+						"environment": "dev"
+					},
+					{
+						"name": "Organisation",
+						"url": "https://github.com/ExplorADV",
+						"icon": "mdi:domain",
+						"environment": "dev"
+					},
+					{
+						"name": "Website",
+						"url": "https://staging.exploradv.com/",
+						"icon": "mdi:web",
+						"environment": "staging"
+					},
+					{
+						"name": "Admin",
+						"url": "https://staging-app.exploradv.com/",
+						"icon": "mdi:shield-account",
+						"environment": "staging"
+					},
+					{
+						"name": "Beta Testers",
+						"url": "https://www.facebook.com/messages/t/9504582952963621",
+						"icon": "mdi:account-group",
+						"environment": "staging"
+					},
+					{
+						"name": "Website",
+						"url": "https://exploradv.com/",
+						"icon": "mdi:web",
+						"environment": "prod"
+					},
+					{
+						"name": "Admin",
+						"url": "https://admin.exploradv.com/",
+						"icon": "mdi:shield-account",
+						"environment": "prod"
+					}
+				]
+			},
+			{
+				"title": "Projets",
+				"color": "cyan",
+				"align": "left",
+				"maxVisibleLinks": 5,
+				"links": [
+					{
+						"name": "Billissimo",
+						"url": "https://github.com/patricklafleur/billissimo-web",
+						"icon": "mdi:github"
+					},
+					{
+						"name": "Curately",
+						"url": "https://github.com/patricklafleur/curately-rails",
+						"icon": "mdi:github"
+					},
+					{
+						"name": "Blossom UI",
+						"url": "https://github.com/patricklafleur/blossom_ui",
+						"icon": "mdi:github"
+					},
+					{
+						"name": "Clusterfuck",
+						"url": "https://github.com/patricklafleur/clusterfuck-go",
+						"icon": "mdi:github"
+					},
+					{
+						"name": "GamesZone",
+						"url": "https://github.com/patricklafleur/gameszone.io",
+						"icon": "mdi:github"
+					},
+					{
+						"name": "ZoneSudoku",
+						"url": "https://github.com/patricklafleur/zonesudoku-rails",
+						"icon": "mdi:github"
+					},
+					{
+						"name": "Hit The Face",
+						"url": "https://github.com/patricklafleur/hit-the-face",
+						"icon": "mdi:github"
+					},
+					{
+						"name": "Slapshot",
+						"url": "https://github.com/patricklafleur/slapshot",
+						"icon": "mdi:github"
+					},
+					{
+						"name": "Soundwave",
+						"url": "https://github.com/patricklafleur/soundwave",
+						"icon": "mdi:github"
+					},
+					{
+						"name": "Harmony",
+						"url": "https://github.com/patricklafleur/harmony",
+						"icon": "mdi:github"
+					}
+				]
+			},
+			{
+				"title": "3D Printing",
+				"color": "white",
+				"align": "left",
+				"links": [
+					{
+						"name": "Bambu Lab",
+						"url": "https://bambulab.com/",
+						"icon": "mdi:printer-3d"
+					},
+					{
+						"name": "MakerWorld",
+						"url": "https://makerworld.com/",
+						"icon": "mdi:cube-outline"
+					},
+					{
+						"name": "Printables",
+						"url": "https://www.printables.com/",
+						"icon": "mdi:printer-3d-nozzle"
+					},
+					{
+						"name": "Thingiverse",
+						"url": "https://www.thingiverse.com/",
+						"icon": "mdi:shape-outline"
+					},
+					{
+						"name": "Thangs",
+						"url": "https://thangs.com/",
+						"icon": "mdi:cube-scan"
+					}
+				]
+			},
+			{
+				"title": "GitHub",
+				"color": "green",
+				"align": "left",
+				"links": [
+					{
+						"name": "Profil",
+						"url": "https://github.com/patricklafleur",
+						"icon": "mdi:account"
+					},
+					{
+						"name": "Repositories",
+						"url": "https://github.com/patricklafleur?tab=repositories",
+						"icon": "mdi:source-repository"
+					},
+					{
+						"name": "Pull Requests",
+						"url": "https://github.com/pulls",
+						"icon": "mdi:source-pull"
+					},
+					{
+						"name": "dotfiles",
+						"url": "https://github.com/patricklafleur/dotfiles",
+						"icon": "mdi:github"
+					}
+				]
+			},
+			{
+				"title": "DevTools",
+				"color": "yellow",
+				"align": "left",
+				"links": [
+					{
+						"name": "Dokku",
+						"url": "https://dokku.com/docs/getting-started/installation/",
+						"icon": "mdi:server"
+					},
+					{
+						"name": "DevDocs",
+						"url": "https://devdocs.io/",
+						"icon": "mdi:book-open-variant"
+					},
+					{
+						"name": "Apple Developer",
+						"url": "https://developer.apple.com/",
+						"icon": "mdi:apple"
+					},
+					{
+						"name": "Docker Hub",
+						"url": "https://hub.docker.com/",
+						"icon": "mdi:docker"
+					}
+				]
+			},
+			{
+				"title": "Cloud",
+				"color": "blue",
+				"align": "left",
+				"links": [
+					{
+						"name": "Hetzner",
+						"url": "https://console.hetzner.cloud/",
+						"icon": "simple-icons:hetzner"
+					},
+					{
+						"name": "Digital Ocean",
+						"url": "https://cloud.digitalocean.com/",
+						"icon": "mdi:digital-ocean"
+					},
+					{
+						"name": "AWS",
+						"url": "https://console.aws.amazon.com/",
+						"icon": "mdi:aws"
+					},
+					{
+						"name": "Dreamhost",
+						"url": "https://panel.dreamhost.com/",
+						"icon": "mdi:cloud"
+					},
+					{
+						"name": "DNSimple",
+						"url": "https://dnsimple.com/dashboard",
+						"icon": "mdi:dns"
+					},
+					{
+						"name": "Postmark",
+						"url": "https://account.postmarkapp.com/",
+						"icon": "mdi:email"
+					}
+				]
+			},
+			{
+				"title": "Game Development",
+				"color": "red",
+				"align": "left",
+				"maxVisibleLinks": 5,
+				"links": [
+					{
+						"name": "itch.io",
+						"url": "https://itch.io/",
+						"icon": "simple-icons:itchdotio"
+					},
+					{
+						"name": "Defold (Doc)",
+						"url": "https://defold.com/learn/",
+						"icon": "mdi:book-open-variant"
+					},
+					{
+						"name": "Lua",
+						"url": "https://www.lua.org/docs.html",
+						"icon": "simple-icons:lua"
+					},
+					{
+						"name": "Godot",
+						"url": "https://godotengine.org/",
+						"icon": "simple-icons:godotengine"
+					},
+					{
+						"name": "Unity",
+						"url": "https://unity.com/",
+						"icon": "simple-icons:unity"
+					},
+					{
+						"name": "Game Dev Forum",
+						"url": "https://forum.defold.com/",
+						"icon": "mdi:forum"
+					},
+					{
+						"name": "Humble Bundle",
+						"url": "https://www.humblebundle.com/",
+						"icon": "mdi:gift-outline"
+					}
+				]
+			},
+			{
+				"title": "Social",
+				"color": "gray",
+				"align": "left",
+				"maxVisibleLinks": 5,
+				"links": [
+					{
+						"name": "Twitter",
+						"url": "https://twitter.com/",
+						"icon": "mdi:twitter"
+					},
+					{
+						"name": "Facebook",
+						"url": "https://facebook.com/",
+						"icon": "mdi:facebook"
+					},
+					{
+						"name": "Instagram",
+						"url": "https://instagram.com/",
+						"icon": "mdi:instagram"
+					},
+					{
+						"name": "LinkedIn",
+						"url": "https://linkedin.com/",
+						"icon": "mdi:linkedin"
+					},
+					{
+						"name": "Discord",
+						"url": "https://discord.com/channels/@me",
+						"icon": "mdi:discord"
+					},
+					{
+						"name": "Reddit",
+						"url": "https://reddit.com/",
+						"icon": "mdi:reddit"
+					},
+					{
+						"name": "YouTube",
+						"url": "https://youtube.com/",
+						"icon": "mdi:youtube"
+					},
+					{
+						"name": "Twitch",
+						"url": "https://twitch.tv/",
+						"icon": "mdi:twitch"
+					},
+					{
+						"name": "WhatsApp",
+						"url": "https://web.whatsapp.com/",
+						"icon": "mdi:whatsapp"
+					}
+				]
+			}
+		]
+	}
+}
