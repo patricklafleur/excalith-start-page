@@ -1,8 +1,18 @@
 <div align="center">
-	<h1 align="center">Excalith Start Page</h1>
+	<h1 align="center">Excalith Start Page - Fork Personnalise</h1>
 	<img src=".github/startpage.gif" />
 
 This is an interactive start page for browsers, inspired from my terminal setup.
+
+**Fork personnel avec fonctionnalites custom:**
+- Filtres environnement (dev/staging/prod) par section
+- Boutons Expand all / Collapse all
+- Limite d'affichage configurable
+- Commandes config copy/export
+- Build statique nginx (~20MB)
+- Auto-deploy vers GitHub Container Registry
+
+**Projet original:** [excalith/excalith-start-page](https://github.com/excalith/excalith-start-page)
 
 [![Vercel Status](https://therealsujitk-vercel-badge.vercel.app/?app=excalith-start-page)](https://excalith-start-page.vercel.app)
 [![Demo Version (latest semver)](https://img.shields.io/github/package-json/v/excalith/excalith-start-page?label=preview)](https://github.com/excalith/excalith-start-page)
@@ -45,6 +55,8 @@ Please refer to [configuration](https://github.com/excalith/excalith-start-page/
   - `config theme` - Lists all [available themes](./data/themes/)
   - `config theme <theme-name>` - Switches between themes and sets your local configuration
   - `config edit` - Edit local configuration within editor
+  - `config copy` - Copy settings to clipboard (custom)
+  - `config export` - Download settings as JSON file (custom)
   - `config reset` - Reset your configuration to default
 
 ### Key Bindings
