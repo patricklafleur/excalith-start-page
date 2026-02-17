@@ -15,9 +15,10 @@ const Section = ({ section, filter, selection, isExpanded }) => {
 		? [...new Set(section.links.map((link) => link.environment).filter(Boolean))]
 		: []
 
-	let filteredLinks = hasEnvironmentSelector && selectedEnvironment
-		? section.links.filter((link) => link.environment === selectedEnvironment)
-		: section.links
+	let filteredLinks =
+		hasEnvironmentSelector && selectedEnvironment
+			? section.links.filter((link) => link.environment === selectedEnvironment)
+			: section.links
 
 	const maxVisible = section.maxVisibleLinks
 	const totalLinks = filteredLinks.length
@@ -30,7 +31,8 @@ const Section = ({ section, filter, selection, isExpanded }) => {
 	return (
 		<div className={`mb-4 align-${alignment}`}>
 			<div className="flex items-center gap-2 mb-3">
-				<h2 className={`text-title font-bold mt-0 mb-0 cursor-default text-${section.color}`}>
+				<h2
+					className={`text-title font-bold mt-0 mb-0 cursor-default text-${section.color}`}>
 					{section.title}
 				</h2>
 
@@ -60,7 +62,8 @@ const Section = ({ section, filter, selection, isExpanded }) => {
 				})}
 				{hasHiddenLinks && (
 					<li className="-my-2 -ml-3">
-						<span className={`ml-2 inline-block px-1 text-${section.color} opacity-40 text-sm`}>
+						<span
+							className={`ml-2 inline-block px-1 text-${section.color} opacity-40 text-sm`}>
 							...
 						</span>
 					</li>
@@ -94,8 +97,7 @@ const List = () => {
 				<div className="flex justify-end px-3 py-2">
 					<button
 						onClick={() => setIsExpanded(!isExpanded)}
-						className="px-2 py-0.5 text-xs font-normal cursor-pointer text-gray opacity-50 hover:opacity-100 transition-opacity duration-200"
-					>
+						className="px-2 py-0.5 text-xs font-normal cursor-pointer text-gray opacity-50 hover:opacity-100 transition-opacity duration-200">
 						{isExpanded ? "Collapse all" : "Expand all"}
 					</button>
 				</div>
